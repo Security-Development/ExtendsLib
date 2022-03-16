@@ -48,6 +48,15 @@ class ExtendsLib extends PluginBase {
         }
     }
 
+    public static function getPlayerHandle(string $value1, string $value2) : Player {
+        $handlePlayer = null;
+
+        if( stripos($value1, $value2) === 0 ) 
+            $handlePlayer = Server::getInstance()->getOfflinePlayer($key) ?? null;
+ 
+        return $handlePlayer;
+    }
+
     public static function sendBossBarPacket(Player $player, string $title = '', float $percent = 1.0) : void{
         ExtendsLib::sendPackets($player, [
             BossEventPacket::show(
