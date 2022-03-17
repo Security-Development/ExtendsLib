@@ -48,11 +48,11 @@ class ExtendsLib extends PluginBase {
         }
     }
 
-    public static function getPlayerHandle(string $value1, string $value2) : Player {
+    public static function getPlayerHandle(string $value1, string $value2) : ?Player {
         $handlePlayer = null;
 
         if( stripos($value1, $value2) === 0 ) 
-            $handlePlayer = Server::getInstance()->getOfflinePlayer($key) ?? null;
+            $handlePlayer = Server::getInstance()->getOfflinePlayer($value1) ?? null;
  
         return $handlePlayer;
     }
